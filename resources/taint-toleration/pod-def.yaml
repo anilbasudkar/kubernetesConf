@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-def
+spec:
+  containers:
+    - name: nginix-container
+      image: nginx
+  tolerations: #Toleration values will be pulled from the taint command
+              # $> kubectl taint nodes node1 app=blue:NoSchedule
+    - key: "app"
+      operator: "Equal"
+      value: "blue"
+      effect: "NoSchedule"

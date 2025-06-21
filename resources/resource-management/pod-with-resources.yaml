@@ -8,6 +8,9 @@ spec:
       image: polinux/stress
       command: ["stress"]
       resources:
-        request:
+        requests:
           memory: "200Mi"
+          cpu: 1
+        limits:
+          memory: 2Gi
           cpu: 1
